@@ -6,81 +6,89 @@ const ANIMAL_TYPE = {
 // TODO: Implement this function.
 function Dog(name, age) {
   // Returns the name of the dog.
+    this.name = name; 
+    this.age = age; 
+
   this.getName = function () {
     // TODO: Implement this function.
-    return null;
+    return this.name;
   };
 
   // Returns the age of the dog.
   this.getAge = function () {
     // TODO: Implement this function.
-    return null;
+    return this.age;
   };
 
   // Returns a description of the dog in the following format:
   // 'Name: <name>\nAge: <age>\nType: <type>'
-  this.toString = function () {
+  this.toString = function(name, age, type) {
     // TODO: Implement this function.
-    return null;
+    return `Name: ${this.name}\nAge: ${this.age}\nType: ${ANIMAL_TYPE.DOG}`;
   };
 
   // Returns the type of the dog.
   // HINT: just reutrn ANIMAL_TYPE.DOG
   this.getType = function () {
     // TODO: Implement this function.
-    return null;
+    return ANIMAL_TYPE.DOG;
   };
-
   // Returns a string 'woof'.
   this.saySomething = function () {
-    return null;
+    return 'woof';
   };
-
   return this;
-}
-
+};
 // TODO: Implement this function.
 function Cat(name, age) {
+  this.name = name;
+  this.age = age; 
   // Returns the name of the cat.
   this.getName = function () {
     // TODO: Implement this function.
-    return null;
+    return this.name;
   };
 
   // Returns the age of the cat.
   this.getAge = function () {
     // TODO: Implement this function.
-    return null;
+    return this.age;
   };
 
   // Returns a description of the cat.
   this.toString = function () {
     // TODO: Implement this function.
-    return null;
+    return `Name: ${this.name}\nAge: ${this.age}\nType: ${ANIMAL_TYPE.CAT}`;
   };
 
   // Returns the type of the cat.
   this.getType = function () {
     // TODO: Implement this function.
-    return null;
+    return ANIMAL_TYPE.CAT;
   };
 
   // Returns a string 'meow'.
   this.saySomething = function () {
-    // TODO: Implement this function.
-    return null;
+    // TODO: Implement this function
+    return 'meow';
   };
 
   return this;
-}
+};
 
 // TODO: Implement this function.
 function createAnimal(name, type, age) {
   // TODO: Choose the right constructor given the type of an animal.
   // For example, if the type is ANIMAL_TYPE.DOG, then use Dog(name, age)
   // to create this animal.
-  let animal = new Object();
-
+  if (type === ANIMAL_TYPE.DOG) {
+    return new Dog(name, age);
+  } else if (type === ANIMAL_TYPE.CAT) {
+    return new Cat(name, age);
+  }
+  
+  let animal = new Object(name, age);
+  
   return animal;
 }
 
